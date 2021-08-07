@@ -1,0 +1,585 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+
+// Global styles
+@include foundation-global-styles;
+@include foundation-forms;
+@include foundation-typography;
+
+// Grids (choose one)
+@include foundation-xy-grid-classes;
+// @include foundation-grid;
+// @include foundation-flex-grid;
+
+// Generic components
+@include foundation-button;
+@include foundation-button-group;
+@include foundation-close-button;
+@include foundation-label;
+@include foundation-progress-bar;
+@include foundation-slider;
+@include foundation-switch;
+@include foundation-table;
+// Basic components
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-callout;
+@include foundation-card;
+@include foundation-dropdown;
+@include foundation-pagination;
+@include foundation-tooltip;
+
+// Containers
+@include foundation-accordion;
+@include foundation-media-object;
+@include foundation-orbit;
+@include foundation-responsive-embed;
+@include foundation-tabs;
+@include foundation-thumbnail;
+// Menu-based containers
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-accordion-menu;
+@include foundation-drilldown-menu;
+@include foundation-dropdown-menu;
+
+// Layout components
+@include foundation-off-canvas;
+@include foundation-reveal;
+@include foundation-sticky;
+@include foundation-title-bar;
+@include foundation-top-bar;
+
+// Helpers
+@include foundation-float-classes;
+@include foundation-flex-classes;
+@include foundation-visibility-classes;
+// @include foundation-prototype-classes;
+
+// Motion UI
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+$theme-blue:#0080BA;
+$theme-green:#85BB1D;
+$text-color:#8A8A8A;
+$theme-skyblue:#F2F9FF;
+$paragraph:14px;
+html{
+	scroll-behavior: smooth;
+}
+#topBar{
+	padding: 1em;
+	background: $theme-blue;
+	.timings{
+		span{
+			color: $white;
+			font-size: $paragraph;
+		}
+	}
+	.quickCOntact{
+		span{
+			color: $white;
+			font-size: $paragraph;
+			a{
+				color: $white;
+				transition: 0.3s all;
+				padding: 0 0.5em;
+				&:hover{
+					color: $theme-green;
+				}
+			}
+
+		}
+		.directionbtn{
+			display: inline-block;
+			padding-left: 1em;
+			a{
+				background: $white;
+				padding: 0.3em 1.3em;
+				color: $theme-blue;
+				border:1px solid $white;
+				transition: 0.3s all;
+				border-radius: 5px;
+				font-size: $paragraph;
+				&:hover{
+					background: $theme-blue;
+					color: $white;
+				}
+			}
+		}
+	}
+}
+#topBarNav{
+	background: $white;
+	&.sticky{
+		position:fixed;
+		width: 100%;
+		top:0;
+		background: $white;
+		z-index: 999;
+		box-shadow: 0px 0px 8px 2px #f1f1f1;
+		@include breakpoint(small only){
+			width: 80%;
+		}
+		@include breakpoint(medium only){
+			width: 95%;
+		}
+		.logoDIv{
+			img{
+				width:65%;
+				@include breakpoint(small only){
+					width: 100%;
+				}
+			}
+		}
+		.webMenu{
+			top:0.7em;
+		}
+	}
+	.logoDIv{
+		img{
+			width:auto;
+		}
+	}
+	.webMenu{
+		float: right;
+		position: relative;
+		top: 1.5em;
+		ul{
+			li{
+				a{
+					color: $text-color;
+					font-weight:500;
+					font-size: $paragraph;
+					transition: 0.3s all;
+					&:hover{
+						color: $theme-green;
+					}
+				}
+			}
+		}
+	}
+	.mobMenu{
+		padding: 0.4em;
+		img{
+			@include breakpoint(medium only){
+				margin-top: 1em;
+			}
+		}
+	}
+}
+.off-canvas{
+	background: $white;
+	ul{
+		li{
+			a{
+				color: $white;
+				font-size: 14px;
+				text-transform: uppercase;
+				background: $theme-green;
+				margin-bottom: 0.3em;
+			}
+		}
+	}
+}
+#BannerDIv{
+	padding:3em 0;
+	position: relative;
+	&:before{
+		position: absolute;
+		content: '';
+		width: 70%;
+		right: 4em;
+		height: 100%;
+		top:0;
+		background: $theme-skyblue;
+		@include breakpoint(medium down){
+			width: 100%;
+			right: 0;
+		}
+	}
+	.bannerCOntentWrapper{
+		margin-top: 2em;
+		position:relative;
+		h6{
+			color:$theme-green;
+		}
+		h2{
+			font-weight: 700;
+			color: $theme-blue;
+		}
+		.bannerButtons{
+			margin-top: 2em;
+			a{
+				display: block;
+				width: 100%;
+				padding: 0.6em 1em;
+				border:1px solid $theme-green;
+				color: $theme-green;
+				border-radius:5px;
+				margin-bottom: 1.5em;
+				text-transform: uppercase;
+				transition: 0.3s all;
+				font-size: 14px;
+				font-weight: 500;
+				position: relative;
+				&:before{
+					position: absolute;
+					content: '';
+					width: 24px;
+					height: 24px;
+					background-image: url('../img/arrow-right.png');
+					background-size: contain;
+					background-repeat: no-repeat;
+					right: 1em;
+					top:32%;
+					transition: 0.3s all;
+				}
+				img{
+					padding-right:1em;
+				}
+				&:hover{
+					background: $theme-green;
+					color: $white;
+					&:before{
+						filter: brightness(100);
+					}
+					img{
+						filter: brightness(100);
+					}
+				}
+			}
+		}
+	}
+	.bannerImage{
+		position: relative;
+		img{
+			width: 100%;
+		}
+	}
+}
+#aboutUs{
+	padding: 3em 0;
+	position: relative;
+	&:before{
+		position: absolute;
+		content: '';
+		width: 70%;
+		right: 4em;
+		height: 75%;
+		top:0;
+		background: $theme-skyblue;
+		@include breakpoint(medium down){
+			width: 100%;
+			right: 0;
+		}
+	}
+	.aboutImage{
+		position: relative;
+		img{
+			width:100%;
+		}
+	}
+	.aboutContent{
+		position: relative;
+		@include breakpoint(large){
+			padding-left:10%;
+		}
+		@include breakpoint(medium down){
+			margin-top: 1em;
+		}
+		h4{
+			font-weight: 700;
+			text-transform: uppercase;
+			color: $theme-blue;
+			span{
+				color: $theme-green;
+			}
+		}
+		p{
+			font-size: $paragraph;
+			color: $text-color;
+			line-height: 28px;
+		}
+	}
+}
+#highlights{
+	padding: 3em 0;
+	@include breakpoint(medium down){
+		padding-top: 0;
+	}
+	.singleHughlight{
+		img{
+			width: 80px;
+			height: 75px;
+		}
+		p{
+			margin-top: 1em;
+			font-size: $paragraph;
+			color: $theme-blue;
+		}
+	}
+}
+#treatmentsRow{
+	padding: 3em 0;
+	position: relative;
+	padding-top: 5em;
+	&:before{
+		position: absolute;
+		content: '';
+		width: 70%;
+		left: 2em;
+		height: 100%;
+		top:0;
+		background: $theme-skyblue;
+		@include breakpoint(medium down){
+			width: 100%;
+			left: 0;
+			height: 100%;
+		}
+	}
+	.treatmentsTitleRow{
+		position: relative;
+		text-align: center;
+		margin-bottom: 2em;
+		h4{
+			font-weight: 700;
+			text-transform: uppercase;
+			color: $theme-blue;
+			span{
+				color: $theme-green;
+			}
+		}
+	}
+	.sliderArrows{
+		position: absolute;
+	    width: 8%;
+	    right: 18%;
+	    top: 6em;
+	    @include breakpoint(medium down){
+	    	width: 32%;
+	    	right: 0;
+	    	left: 0;
+	    	bottom: 0;
+	    	margin: 0 auto;
+	    	top:auto;
+	    }
+	    .swiper-button-next,.swiper-button-prev{
+	    	border: 1px solid $theme-green;
+	    	border-radius: 50px;
+	    	padding: 1.3em;
+	    	&:after{
+	    		font-size: 15px;
+	    		color: $theme-green;
+	    	}
+	    }
+	}
+	.treatmentsSliderWrapper{
+		.treatmentSlider{
+			.singleTreatment{
+				img{
+					width: 100%;
+					margin-bottom: 1em;
+				}
+				p{
+					text-transform: uppercase;
+					font-weight: 700;
+					color: $theme-blue;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}
+#doctors{
+	padding: 3em 0;
+	@include breakpoint(medium down){
+		padding-bottom: 0;
+	}
+	.doctorTitle{
+		margin-bottom: 2em;
+		h4{
+			font-weight: 700;
+			text-transform: uppercase;
+			color: $theme-blue;
+			span{
+				color: $theme-green;
+			}
+		}
+	}
+	.singleDoctor{
+		@include breakpoint(medium down){
+			margin-bottom: 2em;
+		}
+		img{
+			width: 100%;
+			margin-bottom: 1em;
+		}
+		p{
+			text-transform: uppercase;
+			font-weight: 700;
+			color: $theme-blue;
+			font-size: $paragraph;
+			margin:0;
+		}
+		span{
+			color: $text-color;
+			font-size: 14px;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+	}
+}
+#bookApoointment{
+	padding: 5em 0;
+	margin:3em 0;
+	background-image: url('../img/appointment-bg.png');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	@include breakpoint(medium down){
+		background-position: left;
+	}
+	.bookAppointmentTitle{
+		margin-bottom: 2em;
+		padding-left: 0.8em;
+		h4{
+			font-weight: 700;
+			text-transform: uppercase;
+			color: $theme-blue;
+			span{
+				color: $theme-green;
+			}
+		}
+	}
+	.bookAppointmentForm{
+		.appointmentInput{
+			background: #fff;
+			font-size: 13px;
+			box-shadow: none;
+			outline: none;
+			color: $text-color;
+			&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			  color: $text-color;;
+			}
+			&::-moz-placeholder { /* Firefox 19+ */
+			  color: $text-color;;
+			}
+			&:-ms-input-placeholder { /* IE 10+ */
+			  color: $text-color;;
+			}
+			&:-moz-placeholder { /* Firefox 18- */
+			  color: $text-color;;
+			}
+		}
+		.appointmentSubmit{
+			padding: 0.7em 2.5em;
+			border-radius:5px;
+			border:1px solid $theme-green;
+			color: $white;
+			background:$theme-green;
+			font-size: 14px;
+			text-transform: uppercase;
+			cursor: pointer;
+			transition: 0.3s all;
+			outline: none;
+			&:hover{
+				background: $white;
+				color: $theme-green;
+			}
+		}
+	}
+}
+#testimonialsRow{
+	.TestimonialsTitle{
+		margin-bottom: 2em;
+		h4{
+			font-weight: 700;
+			text-transform: uppercase;
+			color: $theme-blue;
+			span{
+				color: $theme-green;
+			}
+		}
+	}
+}
+#gallery{
+	padding: 3em 0 1em;
+	.singleGallery{
+		margin-bottom: 2em;
+	}
+}
+#address{
+	padding: 3em 0;
+	margin:3em 0;
+	position: relative;
+	&:before{
+		position: absolute;
+		content: '';
+		width: 70%;
+		left: 2em;
+		height: 70%;
+		top:0;
+		background: $theme-skyblue;
+		@include breakpoint(medium down){
+			width: 100%;
+			height: 100%;
+			left: 0;
+		}
+	}
+	.addressImage{
+		position: relative;
+
+		h4{
+			font-weight: 700;
+			text-transform: uppercase;
+			color: $theme-blue;
+			margin-bottom: 1em;
+			span{
+				color: $theme-green;
+			}
+		}
+		img{
+			width: 100%;
+		}
+	}
+	.addressContent{
+		position: relative;
+		padding-left: 10%;
+		img{
+			margin-bottom: 0.5em;
+		}
+		h6{
+			font-weight: 700;
+			color: $theme-blue;
+			text-transform: uppercase;
+			margin:1em 0;
+		}
+		p{
+			color: $text-color;
+			font-size: $paragraph;
+			a{
+				color: $text-color;
+				transition: 0.3s all;
+				padding: 0 0.5em;
+				&:hover{
+					color: $theme-green;
+				}
+			}
+		}
+	}
+}
+#copyright{
+	padding: 1em;
+	background: $theme-blue;
+	.ciopyrightText{
+		span{
+			color: $white;
+			font-size: 13px;
+		}
+	}
+}
